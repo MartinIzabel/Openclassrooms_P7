@@ -1,4 +1,5 @@
 pandas
+os
 streamlit 
 numpy
 sklearn
