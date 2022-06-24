@@ -1,12 +1,10 @@
 # -*- coding: utf-8 -*-
-
-# from flask import Flask
 import os
 import pandas as pd
 import streamlit as st
 import numpy as np
 import requests
-from sklearn import preprocessing
+from sklearn
 import joblib
 
 
@@ -32,7 +30,7 @@ model = joblib.load("model_gb.pkl")
 features = list(app_test.columns)
 
 #Preparation des predictions
-X_test = preprocessing.StandardScaler().fit_transform(app_test)
+X_test = sklearn.preprocessing.StandardScaler().fit_transform(app_test)
 app_test['prediction'] = (model.predict_proba(X_test)[:,1] >= 0.48).astype(bool)
 
 #######################################################################################
