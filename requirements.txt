@@ -1,10 +1,7 @@
-os
 pandas
 streamlit 
 numpy
 requests
-preprocessing
 joblib
-LGBMClassifier
 matplotlib.pyplot
 seaborn

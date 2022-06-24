@@ -9,7 +9,6 @@ import requests
 from sklearn import preprocessing
 import joblib
 
-from lightgbm import LGBMClassifier
 
 # matplotlib and seaborn for plotting
 import matplotlib.pyplot as plt
