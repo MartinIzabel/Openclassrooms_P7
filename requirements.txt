@@ -4,5 +4,3 @@ numpy
 sklearn
 requests
 joblib
-matplotlib
-seaborn
