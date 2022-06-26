@@ -5,4 +5,5 @@ sklearn
 requests
 joblib
 matplotlib
+pyplot
 seaborn
