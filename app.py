@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# import os
+import os
 import pandas as pd
 import streamlit as st
 import numpy as np
@@ -9,8 +9,8 @@ import joblib
 
 
 # matplotlib and seaborn for plotting
-import matplotlib as plt
-import seaborn as sns
+# import matplotlib as plt
+# import seaborn as sns
 
 #######################################################################################
 # To run this code, type in terminal at the file path: 
@@ -18,7 +18,7 @@ import seaborn as sns
 # streamlit run app.py
 #######################################################################################
 
-# pathabsolutedir = os.path.dirname(os.path.abspath(__file__))
+pathabsolutedir = os.path.dirname(os.path.abspath(__file__))
 
 #Load the data
 app_test = pd.read_csv('app_test.csv', sep = ",",  index_col='SK_ID_CURR')
