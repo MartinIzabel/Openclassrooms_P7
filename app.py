@@ -57,50 +57,50 @@ if left_column.button('Predire !'):
     
     st.subheader("Ratio de prêt accordés")
 
-    x = [1, 2, 3, 4, 10]
-    fig, ax = plt.pyplot.subplots(figsize = (4, 4))
-    ax.pie(app_test['prediction'].value_counts(), labels = ["Accordé", "Refusé"],
-               explode = [0, 0.2],
-               autopct = lambda x: str(round(x, 2)) + '%',
-               pctdistance = 0.7, labeldistance = 1.4,
-               shadow = True)
-    st.pyplot(fig)
+#     x = [1, 2, 3, 4, 10]
+#     fig, ax = plt.pyplot.subplots(figsize = (4, 4))
+#     ax.pie(app_test['prediction'].value_counts(), labels = ["Accordé", "Refusé"],
+#                explode = [0, 0.2],
+#                autopct = lambda x: str(round(x, 2)) + '%',
+#                pctdistance = 0.7, labeldistance = 1.4,
+#                shadow = True)
+#     st.pyplot(fig)
 
  
-#######################################################################################
+# #######################################################################################
 
-#Extract feature importances
-feature_importance_values = model.feature_importances_
-feature_importances = pd.DataFrame({'feature': features, 'importance': feature_importance_values})
-top_10_features = feature_importances.sort_values('importance', ascending=False)[:10]
-feature_client = list(top_10_features['feature'])
+# #Extract feature importances
+# feature_importance_values = model.feature_importances_
+# feature_importances = pd.DataFrame({'feature': features, 'importance': feature_importance_values})
+# top_10_features = feature_importances.sort_values('importance', ascending=False)[:10]
+# feature_client = list(top_10_features['feature'])
 
-other_features = [('229_other_features', feature_importances[11:]['importance'].sum())]   
-df_other_ft = pd.DataFrame(other_features, columns = ['feature', 'importance'] )
-top_11_features = top_10_features.append(df_other_ft, ignore_index=True)
+# other_features = [('229_other_features', feature_importances[11:]['importance'].sum())]   
+# df_other_ft = pd.DataFrame(other_features, columns = ['feature', 'importance'] )
+# top_11_features = top_10_features.append(df_other_ft, ignore_index=True)
 
-#######################################################################################  
+# #######################################################################################  
 
 
-client_data = {}
-for col in feature_client:
-    client_data[col] = app_test[col].loc[option]   
+# client_data = {}
+# for col in feature_client:
+#     client_data[col] = app_test[col].loc[option]   
  
 
-if left_column.button('Get details !'):
+# if left_column.button('Get details !'):
     
-    client_data
+#     client_data
 
-    st.subheader("Importance des variables dans la prise de décision")
+#     st.subheader("Importance des variables dans la prise de décision")
 
-    x = [1, 2, 3, 4, 10]
-    fig, ax = plt.pyplot.subplots(figsize = (6, 6))
-    ax.pie(top_11_features['importance'], labels = top_11_features['feature'],
-               explode = [0, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2],
-               autopct = lambda x: str(round(x, 2)) + '%',
-               pctdistance = 0.7, labeldistance = 1.4,
-               shadow = True)
-    st.pyplot(fig)
+#     x = [1, 2, 3, 4, 10]
+#     fig, ax = plt.pyplot.subplots(figsize = (6, 6))
+#     ax.pie(top_11_features['importance'], labels = top_11_features['feature'],
+#                explode = [0, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2],
+#                autopct = lambda x: str(round(x, 2)) + '%',
+#                pctdistance = 0.7, labeldistance = 1.4,
+#                shadow = True)
+#     st.pyplot(fig)
 
 # "EXT_SOURCE_1"
 # "DAYS_BIRTH":
@@ -113,15 +113,15 @@ if left_column.button('Get details !'):
 # "DAYS_EMPLOYED":
 # "DAYS_LAST_PHONE_CHANGE":
 
-variable_select = st.selectbox(
-'Select your feature to explore',feature_client)
+# variable_select = st.selectbox(
+# 'Select your feature to explore',feature_client)
 
 
-st.markdown(f'Votre valeur : {client_data[variable_select]}')
+# st.markdown(f'Votre valeur : {client_data[variable_select]}')
 
 
-chart_data = app_test[variable_select].value_counts()
-st.line_chart(chart_data)
+# chart_data = app_test[variable_select].value_counts()
+# st.line_chart(chart_data)
 
 
 #######################################################################################
