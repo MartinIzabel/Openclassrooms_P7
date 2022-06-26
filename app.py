@@ -4,7 +4,7 @@ import pandas as pd
 import streamlit as st
 import numpy as np
 import requests
-from sklearn
+# from sklearn
 import joblib
 
 
@@ -126,7 +126,7 @@ if left_column.button('Predire !'):
 
 #######################################################################################
 
-if __name__ == "__main__":
-    print("Script runned directly")
-else:
-    print("Script called by other")
+# if __name__ == "__main__":
+#     print("Script runned directly")
+# else:
+#     print("Script called by other")
