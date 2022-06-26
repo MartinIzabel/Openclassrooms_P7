@@ -9,7 +9,7 @@ import joblib
 
 
 # matplotlib and seaborn for plotting
-import matplotlib.pyplot as plt
+import matplotlib as plt
 import seaborn as sns
 
 #######################################################################################
@@ -58,7 +58,7 @@ if left_column.button('Predire !'):
     st.subheader("Ratio de prêt accordés")
 
     x = [1, 2, 3, 4, 10]
-    fig, ax = plt.subplots(figsize = (4, 4))
+    fig, ax = plt.pyplot.subplots(figsize = (4, 4))
     ax.pie(app_test['prediction'].value_counts(), labels = ["Accordé", "Refusé"],
                explode = [0, 0.2],
                autopct = lambda x: str(round(x, 2)) + '%',
@@ -94,7 +94,7 @@ if left_column.button('Get details !'):
     st.subheader("Importance des variables dans la prise de décision")
 
     x = [1, 2, 3, 4, 10]
-    fig, ax = plt.subplots(figsize = (6, 6))
+    fig, ax = plt.pyplot.subplots(figsize = (6, 6))
     ax.pie(top_11_features['importance'], labels = top_11_features['feature'],
                explode = [0, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2],
                autopct = lambda x: str(round(x, 2)) + '%',
