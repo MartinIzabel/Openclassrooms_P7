@@ -8,9 +8,8 @@ from sklearn import preprocessing
 import joblib
 
 
-#matplotlib and seaborn for plotting
+#matplotlib for plotting
 import matplotlib as plt
-import seaborn as sns
 
 #######################################################################################
 # To run this code, type in terminal at the file path: 
