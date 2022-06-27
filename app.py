@@ -35,7 +35,7 @@ app_test['prediction'] = (model.predict_proba(X_test)[:,1] >= 0.48).astype(bool)
 
 #######################################################################################
 
-Select your ID 
+#Select your ID 
 option = st.sidebar.selectbox(
     'Select your Client SK_ID',
      app_test.index)
