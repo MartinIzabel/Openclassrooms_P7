@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # import os
 # import pandas as pd
-# import streamlit as st
+import streamlit as st
 # import numpy as np
 # import requests
 # from sklearn import preprocessing
