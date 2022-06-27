@@ -5,3 +5,4 @@ sklearn
 joblib
 streamlit
 matplotlib
+lightgbm

@@ -6,6 +6,7 @@ import numpy as np
 import requests
 from sklearn import preprocessing
 import joblib
+import lightgbm
 
 
 #matplotlib for plotting
