@@ -33,12 +33,29 @@ features = list(app_test.columns)
 #Preparation des predictions
 seuil = 0.7539816036060938
 X_test = preprocessing.StandardScaler().fit_transform(app_test)
-app_test['prediction'] = (model.predict_proba(X_test)[:,1])
-app_test_bool = app_test
-app_test_bool['prediction_label'] =  (model.predict_proba(X_test)[:,1] > seuil).astype(bool)
+# app_test['prediction'] = (model.predict_proba(X_test)[:,1])
+# app_test_bool = app_test
+# app_test_bool['prediction_label'] =  (model.predict_proba(X_test)[:,1] > seuil).astype(bool)
 
 COLOR_BR_r = ['#EF553B', '#00CC96']
 COLOR_BR = ['indianred', 'dodgerblue']
+
+
+test_query = requests.get("https://fastapi-p7.herokuapp.com/score")
+score_df = pd.DataFrame.from_dict(test_query.json())
+score_df['prediction_label'] = (score_df['prediction'] > seuil).astype(bool)
+# score_df
+score_df.index = score_df.index.astype("int")
+
+app_test = app_test.merge(score_df, left_index=True, right_index=True)
+# app_test
+
+# url = 'https://fastapi-p7.herokuapp.com/predict'
+# input = X_test[0]
+# st.markdown(type(input))
+
+# resp = requests.post(url, data=input)
+# st.markdown(resp.content)
 
 #######################################################################################
 
@@ -90,7 +107,7 @@ if left_column.button('Predire !'):
     st.subheader("Ratio prêt accordé vs non-accordés")
     x = [1, 2, 3, 4, 10]
     fig, ax = plt.pyplot.subplots()
-    ax.pie(app_test_bool['prediction_label'].value_counts(), labels = ["Accordés", "Refusés"],
+    ax.pie(app_test['prediction_label'].value_counts(), labels = ["Accordés", "Refusés"],
                explode = [0, 0.2],
                autopct = lambda x: str(round(x, 2)) + '%',
                pctdistance = 0.7, labeldistance = 1.4,
