@@ -2,7 +2,7 @@
 
 Modèle de Scoring Client 
 
-* 1 Traitement des valeurs manquantes par simpleimputer en remplaçant par la médiane.   
+* 1 Traitement des valeurs manquantes par simpleimputer en remplaçant par la médiane & des corrélations via V de cramer   
 * 2 Equilibrage des données avec undersampling
 * 3 Algorithme: Lightgbm optimisé avec randomizersearch + seuil optimal avec Hyperopt
 * 4 Creation d'un dashboard avec la librairie Streamlit + Déploiement sur Heroku 
